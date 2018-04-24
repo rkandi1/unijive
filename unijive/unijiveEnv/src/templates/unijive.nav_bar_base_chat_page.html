@@ -1,0 +1,81 @@
+<!DOCTYPE hmtl>
+<html>
+<head>
+    <title>{% block head_title %}unijive - Network Better{% endblock head_title %}</title>
+    <meta charset = "utf-8">
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    {% include 'snippets/css.html' %}
+    {% include 'snippets/js.html' %}
+    {% load static %}
+    <style>
+    
+            a.main_page:link, a.main_page:hover{
+                color: #439DBB;
+                text-decoration:none;
+            }
+            a.navbarLink:link, a.navbarLink:hover{
+                color: white;
+                text-decoration:none;
+            }
+        img.test{
+            max-width:33%;
+        }
+        .dropdown:last-child .dropdown-menu {
+            right: 0;
+            left: auto;
+        }
+        .dropdown-item{
+            color:white;
+        }
+    
+    
+     @font-face{
+     font-family: 'CaviarDreams';
+     src: url("{% static 'caviar_dreams/CaviarDreams.ttf' %}");
+    }
+
+        
+        </style>
+{% load static%}
+<link rel="stylesheet" media="screen" href="{% static "sidebar.css"%}" type="text/css"/>
+
+<div class = "navbar" style="background-color:#439DBB;height:65px;padding:0 10px 0 0;">
+        <div class = "col">
+        <div class="navbar-brand" style="font-family:CaviarDreams;color:white;"><a href = "{% url "home" %}" class = "navbarLink"><h1>unijive</h1></a></div>
+        </div>
+        <div class = "col">
+            <div class = "row" style = "float:right;">
+            <a href ="{% url "myAccount" %}" >
+                <button type= "button" class="btn btn-link">
+                    <div class = "image-cropper">
+                        <img class = "rounded" style="height:45px;" src = "{% static "icons_/account_icon.PNG" %}">
+                    </div>
+                </button>
+            </a>
+            
+            <div class = "dropdown" >
+            <img id="settings" class="dropdown-toggle" src="{% static "icons_/settings.gif" %}" height ="25px"alt="" style = "margin-top:17px;position:relative;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown-menu" aria-labelledby="settings" style = "background-color:#439DBB;top:60px;">
+                <a class="dropdown-item" href="{% url "myAccount" %}" >My Account</a>
+                <a class="dropdown-item" href="#">Preferences</a>
+                <a class="dropdown-item" id="logout" href="{% url "log_out" %}">Log Out</a>
+            </div>
+            </div>
+            
+            
+        
+        </div>
+        </div>
+    
+        
+        
+    </div>
+</head>
+<body style = "background-color:#439DBB1F"></body>
+
+{% block content %}
+
+{% endblock content %}
+</body>
+    
+</html>
